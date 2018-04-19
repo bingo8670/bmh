@@ -1,8 +1,8 @@
 <div class="col-md-12">
   <div class="threat">
-    <%= link_to("New threat", new_threat_path, class: "btn btn-primary pull-right") %>
+    <%= link_to("New threat", new_admin_threat_path, class: "btn btn-primary pull-right") %>
   </div>
-  <table class="table table-hover">
+  <table class="table">
     <thead>
       <tr>
         <td>#</td>
@@ -13,10 +13,10 @@
     <tbody> <% @threats.each do |threat| %>
       <tr>
         <td>#</td>
-        <td><%= link_to(threat.title, threat_path(threat)) %></td>
+        <td><%= link_to(threat.title, admin_threat_path(threat)) %></td>
         <td><%= threat.description %></td>
-        <td> <%= link_to("Edit", edit_threat_path(threat), class: "btn btn-sm btn-default")%>
-        <%= link_to("Delete", threat_path(threat), class: "btn btn-sm btn-default", method: :delete, data: { confirm: "Are you sure?" } )%> </td>
+        <td> <%= link_to("Edit", edit_admin_threat_path(threat), class: "btn btn-sm btn-default")%>
+        <%= link_to("Delete", admin_threat_path(threat), class: "btn btn-sm btn-default", method: :delete, data: { confirm: "Are you sure?" } )%> </td>
       </tr>
     <% end %>
     </tbody>

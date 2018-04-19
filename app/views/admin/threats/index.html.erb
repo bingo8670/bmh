@@ -1,0 +1,21 @@
+<div class="pull-right">
+  <%= link_to("Add a threat", new_admin_threat_path, :class => "btn btn-default" ) %>
+</div>
+<br>
+<br>
+<table class="table">
+  <% @threats.each do |threat| %>
+    <tr>
+      <td>
+        <%= link_to(threat.title, admin_threat_path(threat)) %>
+      </td>
+      <td>
+        <%= link_to("Edit", edit_admin_threat_path(threat)) %>
+        <%= link_to("Destroy", admin_threat_path(threat), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+      </td>
+      <td>
+        <%= threat.created_at %>
+      </td>
+    </tr>
+  <% end %>
+</table>
