@@ -15,10 +15,11 @@
         <td>#</td>
         <td><%= link_to(threat.title, admin_threat_path(threat)) %></td>
         <td><%= threat.description %></td>
-        <td> <%= link_to("Edit", edit_admin_threat_path(threat), class: "btn btn-sm btn-default")%>
-        <%= link_to("Delete", admin_threat_path(threat), class: "btn btn-sm btn-default", method: :delete, data: { confirm: "Are you sure?" } )%> </td>
+        <td> <%= link_to("Edit", edit_admin_threat_path(threat), class: "btn btn-sm btn-primary")%>
+        <%= link_to("Delete", admin_threat_path(threat), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure?" } )%> </td>
       </tr>
     <% end %>
     </tbody>
   </table>
+  <%= will_paginate @threats %>
 </div>

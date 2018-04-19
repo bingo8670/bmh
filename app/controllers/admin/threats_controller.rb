@@ -7,7 +7,7 @@ class Admin::ThreatsController < ApplicationController
     @threat = Threat.find(params[:id])
   end
   def index
-    @threats = Threat.all
+    @threats = Threat.paginate(:page => params[:page], :per_page => 10)
   end
   def new
     @threat = Threat.new
@@ -37,15 +37,8 @@ class Admin::ThreatsController < ApplicationController
     redirect_to admin_threats_path
   end
 
-  def require_is_admin
-    if !current_user.admin?
-      flash[:alert] = 'You are not admin'
-      redirect_to root_path
-    end
-  end
-
   private
-  
+
   def threat_params
     params.require(:threat).permit(:title, :description) end
 end

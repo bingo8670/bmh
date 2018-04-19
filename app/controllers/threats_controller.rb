@@ -1,7 +1,7 @@
 class ThreatsController < ApplicationController
   before_action :authenticate_user! , only: [:new]
   def index
-    @threats = Threat.all
+    @threats = Threat.paginate(:page => params[:page], :per_page => 10)
   end
   def show
     @threat = Threat.find(params[:id])
