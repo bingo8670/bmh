@@ -1,6 +1,6 @@
-body{
+#sessionbody{
 	font-size:100%;
-	background: url(bg.jpg);
+  background: url(bg.jpg);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center;
@@ -17,7 +17,7 @@ h2{
 	font-size: 1.5em;
 }
 
-form{
+#sessionform{
 	padding: 3em 2em;
 	background: #F2F2F2;
 	width: 33%;
