@@ -1,0 +1,94 @@
+body{
+	font-size:100%;
+	background: url(bg.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+}
+h2{
+	padding: 2% 1%;
+	background: #6D4A70;
+	color: #fff;
+	width: 33%;
+	margin-top: 20%;
+	margin-left: 33%;
+	float: left;
+	font-size: 1.5em;
+}
+
+form{
+	padding: 3em 2em;
+	background: #F2F2F2;
+	width: 33%;
+	height: 33%;
+	margin-left: 33%;
+	margin-top: 8%;
+}
+
+#password{
+	float: left;
+	margin-left: 21px;
+}
+
+input[type="text"], input[type="email"] {
+	font-family: 'Droid Sans', sans-serif;
+	width:70%;
+	padding: 0.5em 2em 0.5em 1em;
+	color: #B8B8B8;
+	font-size:16px;
+	outline: none;
+	background: none;
+	border:none;
+}
+
+input[type="text"], input[type="password"] {
+	font-family: 'Droid Sans', sans-serif;
+	width:70%;
+	padding: 0.5em 2em 0.5em 1em;
+	color: #B8B8B8;
+	font-size:16px;
+	outline: none;
+	background: none;
+	border:none;
+}
+input[type="text"]:hover, input[type="password"]:hover{
+	color:#9E61A3;
+
+}
+.submit h4 a{
+	float:left;
+	font-size: 16px;
+	color: #999;
+	font-weight: 400;
+	font-family: 'Droid Sans', sans-serif;
+	margin-top: 15px;
+	margin-left: 21px;
+}
+
+/*************************/
+.submit{
+	padding-top:3em;
+}
+input[type="submit"] {
+	float: left;
+	color: #fff;
+	cursor: pointer;
+	font-weight: 900;
+	outline: none;
+	font-family: 'Raleway', sans-serif;
+	padding: 12px 0px;
+	width: 35%;
+	font-size: 18px;
+	background:#6C496F;
+	border:2px solid #6C496F;
+	border-radius: 0.5em;
+	-webkit-border-radius:0.5em;
+	-moz-border-radius:0.5em;
+	-o-border-radius:0.5em;
+}
+input[type="submit"]:hover {
+	background: #fff;
+	color:#6C496F;
+	border:2px solid #6C496F;
+}
