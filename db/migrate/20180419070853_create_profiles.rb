@@ -4,7 +4,7 @@ class CreateProfiles < ActiveRecord::Migration[5.1]
       t.integer :user_id, :index => true
       t.string  :email
       t.string  :name
-      t.boolean :sex
+      t.string :sex
       t.integer :age
       t.string  :position
       t.timestamps

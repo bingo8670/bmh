@@ -3,38 +3,38 @@
 <% if @user.errors.any? %>
   <div id="error_explanation">
     <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
     </ul>
   </div>
 <% end %>
 
 <%= form_for [:admin, @user] do |f| %>
 
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.text_field :email, :class => "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, :class => "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :sex %>
-    <%= f.text_field :sex, :class => "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :age %>
-    <%= f.text_field :age, :class => "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :position %>
-    <%= f.text_field :position, :class => "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.submit "Update", :class => "btn btn-primary" %>
-    <%= link_to "Cancel", admin_users_path %>
-  </div>
+<div class="form-group">
+  <%= f.label :email %>
+  <%= f.text_field :email, :class => "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name, :class => "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :sex %>
+  <%= f.select :sex, [["男"],["女"]] %>  
+</div>
+<div class="form-group">
+  <%= f.label :age %>
+  <%= f.text_field :age, :class => "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :position %>
+  <%= f.text_field :position, :class => "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.submit "Update", :class => "btn btn-primary" %>
+  <%= link_to "Cancel", admin_users_path %>
+</div>
 
 <% end %>

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20180422072131) do
     t.integer "user_id"
     t.string "email"
     t.string "name"
-    t.boolean "sex"
+    t.string "sex"
     t.integer "age"
     t.string "position"
     t.datetime "created_at", null: false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20180422072131) do
     t.datetime "updated_at", null: false
     t.boolean "is_admin", default: false
     t.string "name"
-    t.boolean "sex"
+    t.string "sex"
     t.integer "age"
     t.string "position"
     t.index ["email"], name: "index_users_on_email", unique: true
