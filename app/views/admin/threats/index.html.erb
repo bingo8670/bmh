@@ -1,23 +1,32 @@
-<%= render "common/navbar" %>
 
 <div class="pull-right">
-  <%= link_to("Add a threat", new_admin_threat_path, :class => "btn btn-default" ) %>
+  <%= link_to("新增情报", new_admin_threat_path, :class => "btn btn-default" ) %>
 </div>
 <br>
 <br>
 <table class="table">
+  <tr>
+    <th>标题</th>
+    <th>详情</th>
+    <th>更新时间</th>
+    <th>操作</th>
+  </tr>
   <% @threats.each do |threat| %>
     <tr>
       <td>
         <%= link_to(threat.title, admin_threat_path(threat)) %>
       </td>
       <td>
-        <%= link_to("Edit", edit_admin_threat_path(threat)) %>
-        <%= link_to("Destroy", admin_threat_path(threat), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+        <%= link_to(threat.description, admin_threat_path(threat)) %>
       </td>
       <td>
         <%= threat.created_at %>
       </td>
+      <td>
+        <%= link_to("Edit", edit_admin_threat_path(threat)) %>
+        <%= link_to("Destroy", admin_threat_path(threat), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+      </td>
+
     </tr>
   <% end %>
 </table>

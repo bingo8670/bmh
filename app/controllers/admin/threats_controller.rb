@@ -2,6 +2,7 @@ class Admin::ThreatsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy, :index]
 
   before_action :require_is_admin
+  layout "admin"
 
   def show
     @threat = Threat.find(params[:id])

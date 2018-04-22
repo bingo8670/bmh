@@ -56,7 +56,7 @@ input[type="text"]:hover, input[type="password"]:hover{
 	color:#9E61A3;
 
 }
-.submit h4 a{
+.submit h4{
 	float:left;
 	font-size: 16px;
 	color: #999;

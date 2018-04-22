@@ -1,6 +1,8 @@
 class Admin::UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :update, :edit]
+  layout "admin"
   def index
-    @users = User.all
+    @users = User.paginate(:page => params[:page], :per_page => 10)
   end
 
   def edit
@@ -17,9 +19,16 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:alert] = "删除成功"
+    redirect_to admin_users_path
+  end
+
   protected
 
   def user_params
-    params.require(:user).permit(:eamil)
+    params.require(:user).permit(:email, :name, :sex, :age, :position)
   end
 end
