@@ -1,6 +1,8 @@
 class Admin::UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :update, :edit]
+  before_action :authenticate_user!, only: [:index, :new, :create, :update, :edit, :destroy]
+  before_action :require_is_admin
   layout "admin"
+
   def index
     @users = User.paginate(:page => params[:page], :per_page => 10)
   end
@@ -38,6 +40,18 @@ class Admin::UsersController < ApplicationController
     @user.destroy
     flash[:alert] = "删除成功"
     redirect_to admin_users_path
+  end
+
+  def update_password
+    @user = User.find(params[:user][:id])
+    @user.password = params[:user][:password]
+    if @user.save!
+      Notifier.admin_password_change(@user).deliver
+      flash[:success] = "Password Changed!"
+      redirect_to edit_admin_user_path(@user)
+    else
+      render "edit"
+    end
   end
 
   protected

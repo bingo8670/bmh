@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     authenticated :user do
       root 'admin/users#index', as: :authenticated_root
+      # get 'devise/passwords#edit'
     end
 
     unauthenticated do
