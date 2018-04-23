@@ -7,4 +7,6 @@ class User < ApplicationRecord
     is_admin
   end
 
+  validates :name, :presence => false, :uniqueness => true
+  validates :age, numericality: { only_integer: true }
 end
