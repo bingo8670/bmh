@@ -16,8 +16,8 @@ Rails.application.routes.draw do
     resources :threats
     resources :users do
       member do
-        get :update_password
-        post :update_password
+        get :password
+        patch :update_password
       end
       resource :profile, :controller => "user_profiles"
     end
