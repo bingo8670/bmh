@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :registrations => :registrations, :password => 'passwords' }
+  devise_for :users, :controllers => { :registrations => :registrations, :passwords => :passwords }
 
   devise_scope :user do
     authenticated :user do
-      root 'admin/users#index', as: :authenticated_root
+      root 'threats#index', as: :authenticated_root
       # get 'devise/passwords#edit'
     end
 
@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :threats
     resources :users do
+      member do
+        get :update_password
+        post :update_password
+      end
       resource :profile, :controller => "user_profiles"
     end
   end

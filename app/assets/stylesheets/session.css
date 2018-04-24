@@ -46,14 +46,12 @@ input[type="text"], input[type="password"] {
 	font-family: 'Droid Sans', sans-serif;
 	width:70%;
 	padding: 0.5em 2em 0.5em 1em;
-	color: #B8B8B8;
 	font-size:16px;
 	outline: none;
 	background: none;
 	border:none;
 }
 input[type="text"]:hover, input[type="password"]:hover{
-	color:#9E61A3;
 
 }
 .submit h4{

@@ -43,12 +43,13 @@ class Admin::UsersController < ApplicationController
   end
 
   def update_password
-    @user = User.find(params[:user][:id])
-    @user.password = params[:user][:password]
-    if @user.save!
+    @user = User.find(params[:id])
+    @user.reset_password_token = 'temp'
+    @user.save!
+    if @user.reset_password(params[:password], params[:password_confirmation])
       Notifier.admin_password_change(@user).deliver
       flash[:success] = "Password Changed!"
-      redirect_to edit_admin_user_path(@user)
+      redirect_to edit_registrations_path(@user)
     else
       render "edit"
     end
@@ -57,6 +58,6 @@ class Admin::UsersController < ApplicationController
   protected
 
   def user_params
-    params.require(:user).permit(:email, :name, :sex, :age, :position)
+    params.require(:user).permit(:user, :email, :name, :sex, :age, :position, :password, :password_confirmation)
   end
 end
