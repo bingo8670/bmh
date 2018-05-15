@@ -52,10 +52,11 @@ class Admin::UsersController < ApplicationController
     @user.save!
     if @user.reset_password(params[:password], params[:password_confirmation])
       Notifier.admin_password_change(@user).deliver
-      flash[:success] = "Password Changed!"
+      flash[:success] = "Password Changed ! "
       redirect_to update_password_admin_user_path(@user)
     else
       render "password"
+      flash[:alert] = "Password Changed ? "
     end
   end
 
